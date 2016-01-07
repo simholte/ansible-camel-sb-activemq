@@ -1,0 +1,27 @@
+---
+- include_vars: defaults/main.yml
+- name: Ensure group exists
+  group: name={{ activemq }} state=present
+
+- name: Ensure user exists
+  user: name={{ activemq }} group={{ activemq }} state=present
+
+- name: install java
+  yum: name=java-1.8.0-openjdk state=present
+
+- name: Fetch installer
+  get_url:
+    url={{ activemq_url }}/{{ activemq_installer }}
+    dest={{ activemq_tmp }}/{{ activemq_installer }}
+
+- name: Extract installation
+  shell: tar xvf {{ activemq_tmp }}/{{ activemq_installer }} -C {{ activemq_installto }}
+
+- name: change to the activemq role
+  file: dest={{ activemq_installto }} state=directory owner={{ activemq }} group={{ activemq }} recurse=yes
+
+- name: add new the new service
+  file: src=/opt/apache-activemq-5.13.0/bin/activemq dest=/etc/init.d/activemq state=link
+
+- name: start service
+  service: name=activemq state=running enabled=yes

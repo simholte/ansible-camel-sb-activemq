@@ -18,6 +18,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "docker"
   config.vm.network "forwarded_port", guest: 61616, host: 61616
   config.vm.network "forwarded_port", guest: 8161, host: 8161
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.

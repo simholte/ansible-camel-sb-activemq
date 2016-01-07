@@ -1,0 +1,7 @@
+---
+  activemq_version: 5.13.0
+  activemq_url: http://apache.cs.utah.edu/activemq/{{ activemq_version }}
+  activemq_installer: apache-activemq-{{ activemq_version }}-bin.tar.gz
+  activemq_tmp: /tmp
+  activemq_installto: /opt
+  activemq: activemq

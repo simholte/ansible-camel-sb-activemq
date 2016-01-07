@@ -1,0 +1,12 @@
+---
+- name: copy the springboot app over
+  copy: src=files/request-reply-standalone-1.0-SNAPSHOT.jar dest=/tmp
+
+- name: copy the start script
+  copy: src=files/startsb.sh dest=/tmp mode=0750
+
+- name: sym link so it can be started as a service
+  file: src=/tmp/startsb.sh dest=/etc/init.d/sb state=link mode=0750
+
+- name: start sb service
+  service: name=sb state=running
