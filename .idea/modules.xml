@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ansible-camel-sb-activemq.iml" filepath="$PROJECT_DIR$/ansible-camel-sb-activemq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/request-reply-standalone/request-reply-standalone.iml" filepath="$PROJECT_DIR$/request-reply-standalone/request-reply-standalone.iml" />
+    </modules>
+  </component>
+</project>
